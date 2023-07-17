@@ -6,7 +6,7 @@ import ArrowDown from '../../../images/experience_arrow_down.png';
 
 const Wrapper = styled.div<{ rownumber: number }>`
   display: grid;
-  height: calc(100vh - 230px);
+  height: calc(100vh - 210px);
   grid-template-rows: repeat(${({ rownumber }) => rownumber}, 1fr);
   row-gap: 10px;
   align-items: center;

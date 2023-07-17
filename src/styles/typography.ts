@@ -13,7 +13,7 @@ export const sectionTitleStyle = css`
   font-style: normal;
   font-weight: 500;
   line-height: 47px;
-  padding: 50px 0 0 30px;
+  padding: 30px 0 0 30px;
   margin: 0;
 `;
 
