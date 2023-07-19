@@ -12,7 +12,7 @@ const Wrapper = styled.div<{ isCarousel: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0 20px 0;
+  padding: 30px 0;
 `;
 
 const CarouselContent = styled.div`

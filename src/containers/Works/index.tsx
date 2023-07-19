@@ -5,6 +5,7 @@ import { CAROUSEL_BANNERS, WORK_LIST_BANNERS } from '../../data/carouselData';
 import { NAV } from '../../data/headerData';
 import { sectionStyle } from '../../styles/styles';
 import WorkList from '../../components/Work/WorkList';
+import WorkTitle from '../../components/Work/WorkTitle';
 
 const Wrapper = styled.div`
   ${sectionStyle}
@@ -49,6 +50,7 @@ const Works = () => {
     //     clearInterval(interval);
     //   }
     // };
+
     return () => {
       clearInterval(interval); // 清除定时器
     };
@@ -63,7 +65,7 @@ const Works = () => {
         handlePrev={handleCarouselPrev}
         banners={CAROUSEL_BANNERS}
       />
-      <p>我的作品</p>
+      <WorkTitle />
       <WorkList
         currentBannerIndex={currentBannerIndex}
         isCarousel={false}
