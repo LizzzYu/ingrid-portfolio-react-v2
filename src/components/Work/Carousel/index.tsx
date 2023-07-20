@@ -1,6 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { WORK_MODAL_BANNERS } from '../../../data/carouselData';
+import {
+  WORK_MODAL_DATA,
+  WORK_MODAL_BANNERS,
+} from '../../../data/workModalData';
 import { useModal } from '../../../hooks/useModal';
 import ArrowLeft from '../../../images/carousel/arrow_left.png';
 import ArrowRight from '../../../images/carousel/arrow_right.png';
@@ -118,6 +121,10 @@ const Carousel = ({
     [currentModalImageIndex]
   );
 
+  const modalData = WORK_MODAL_DATA.find(
+    (data) => data.id === currentModalImageIndex
+  );
+
   return (
     <Wrapper>
       <LeftButton onClick={handlePrev}>
@@ -150,7 +157,9 @@ const Carousel = ({
       <RightButton onClick={handleNext}>
         <img src={ArrowRight} alt="next" />
       </RightButton>
-      {isShowModal && <WorkModal onClose={closeModal} image={currentImage} />}
+      {isShowModal && (
+        <WorkModal onClose={closeModal} image={currentImage} data={modalData} />
+      )}
     </Wrapper>
   );
 };

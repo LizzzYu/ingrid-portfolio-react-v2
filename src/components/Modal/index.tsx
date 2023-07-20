@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import Cross from '../../images/cross.png';
+import { secondaryTitleStyle } from '../../styles/typography';
 
 const ModalWrapper = styled.div<{ isFloating: boolean }>`
   position: fixed;
@@ -63,6 +64,10 @@ const Image = styled.div<{ image: string }>`
   background-repeat: no-repeat;
 `;
 
+const Title = styled.h2`
+  ${secondaryTitleStyle};
+`;
+
 const Modal = ({
   title,
   content,
@@ -92,7 +97,7 @@ const Modal = ({
       <ModalContent width={width} isFloating={isFloating}>
         {image && <Image image={image} />}
         <ContentWrapper>
-          <div>{title}</div>
+          <Title>{title}</Title>
           <div>{content}</div>
         </ContentWrapper>
         <CloseButton src={Cross} alt="close" onClick={onClose} />

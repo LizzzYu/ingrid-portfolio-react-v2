@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { WORK_MODAL_BANNERS } from '../../../data/carouselData';
+import {
+  WORK_MODAL_BANNERS,
+  WORK_MODAL_DATA,
+} from '../../../data/workModalData';
 import { useModal } from '../../../hooks/useModal';
 import ArrowLeft from '../../../images/carousel/arrow_left.png';
 import ArrowRight from '../../../images/carousel/arrow_right.png';
-import CarouselPointer from '../CarouselPointer';
 import WorkModal from '../WorkModal';
 
 const Wrapper = styled.div`
@@ -46,15 +48,6 @@ const Image = styled.img`
 
 const CenterImageWrapper = styled.div`
   position: relative;
-`;
-
-const CenterCarouselImage = styled.img`
-  ${CarouselImageStyle}
-
-  &:hover {
-    outline: 6px solid var(--yellow);
-    outline-offset: -6px;
-  }
 `;
 
 const CenterImage = styled.img`
@@ -130,7 +123,10 @@ const WorkList = ({
     () => WORK_MODAL_BANNERS[currentModalImageIndex],
     [currentModalImageIndex]
   );
-  console.log({ currentBannerIndex });
+
+  const modalData = WORK_MODAL_DATA.find(
+    (data) => data.id === currentModalImageIndex
+  );
 
   return (
     <Wrapper>
@@ -170,7 +166,9 @@ const WorkList = ({
       <RightButton onClick={handleNext}>
         <img src={ArrowRight} alt="next" />
       </RightButton>
-      {isShowModal && <WorkModal onClose={closeModal} image={currentImage} />}
+      {isShowModal && (
+        <WorkModal onClose={closeModal} image={currentImage} data={modalData} />
+      )}
     </Wrapper>
   );
 };

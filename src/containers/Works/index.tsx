@@ -75,12 +75,6 @@ const Works = () => {
         handlePrev={handlePrev}
         banners={WORK_LIST_BANNERS}
       />
-      {/* {isShowModal && (
-        <WorkModal
-          onClose={closeModal}
-          image={CAROUSEL_BANNERS[currentBannerIndex]}
-        />
-      )} */}
     </Wrapper>
   );
 };
