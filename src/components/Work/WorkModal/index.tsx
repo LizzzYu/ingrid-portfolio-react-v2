@@ -10,6 +10,7 @@ type WorkModalProps = {
 const WorkModal = ({ onClose, image }: WorkModalProps) => {
   return (
     <Modal
+      isFloating
       width={700}
       image={image}
       title="test"

@@ -1,28 +1,37 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Cross from '../../images/cross.png';
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled.div<{ isFloating: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 背景透明度 30% */
+  background-color: rgba(0, 0, 0, 0.5); /* 背景透明度 50% */
   backdrop-filter: blur(5px); /* 模糊效果 */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 5;
+
+  overflow: ${({ isFloating }) => (isFloating ? 'scroll' : 'auto')};
 `;
 
-const ModalContent = styled.div<{ width: number }>`
+const ModalContent = styled.div<{ width: number; isFloating: boolean }>`
   box-sizing: border-box;
   background-color: var(--white);
   border-radius: 4px;
   box-shadow: 0px 2px 4px 0px rgba(20, 16, 0, 0.1);
   position: relative;
   width: ${({ width }) => `${width}px`};
+
+  ${({ isFloating }) =>
+    isFloating &&
+    css`
+      position: absolute;
+      top: 50px;
+    `}
 `;
 
 const ContentWrapper = styled.div`
@@ -35,6 +44,7 @@ export type ModalProps = {
   onClose: () => void;
   width?: number;
   image?: string;
+  isFloating?: boolean;
 };
 
 const CloseButton = styled.img`
@@ -53,7 +63,14 @@ const Image = styled.div<{ image: string }>`
   background-repeat: no-repeat;
 `;
 
-const Modal = ({ title, content, onClose, width = 580, image }: ModalProps) => {
+const Modal = ({
+  title,
+  content,
+  onClose,
+  width = 580,
+  image,
+  isFloating = false,
+}: ModalProps) => {
   const handleClickBackgroundClose = (event: React.SyntheticEvent) => {
     if (event.target === event?.currentTarget) {
       onClose();
@@ -71,8 +88,8 @@ const Modal = ({ title, content, onClose, width = 580, image }: ModalProps) => {
   }, []);
 
   return (
-    <ModalWrapper onClick={handleClickBackgroundClose}>
-      <ModalContent width={width}>
+    <ModalWrapper isFloating={isFloating} onClick={handleClickBackgroundClose}>
+      <ModalContent width={width} isFloating={isFloating}>
         {image && <Image image={image} />}
         <ContentWrapper>
           <div>{title}</div>
