@@ -13,22 +13,28 @@ const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 `;
 
 const ModalContent = styled.div<{ width: number }>`
+  box-sizing: border-box;
   background-color: var(--white);
   border-radius: 4px;
   box-shadow: 0px 2px 4px 0px rgba(20, 16, 0, 0.1);
-  padding: 40px;
   position: relative;
   width: ${({ width }) => `${width}px`};
 `;
 
-type ModalProps = {
+const ContentWrapper = styled.div`
+  padding: 40px;
+`;
+
+export type ModalProps = {
   title?: string | React.ReactNode;
   content: string | React.ReactNode;
   onClose: () => void;
   width?: number;
+  image?: string;
 };
 
 const CloseButton = styled.img`
@@ -38,7 +44,16 @@ const CloseButton = styled.img`
   right: 20px;
 `;
 
-const Modal = ({ title, content, onClose, width = 580 }: ModalProps) => {
+const Image = styled.div<{ image: string }>`
+  width: 700px;
+  height: 350px;
+
+  background-image: url(${({ image }) => image});
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+const Modal = ({ title, content, onClose, width = 580, image }: ModalProps) => {
   const handleClickBackgroundClose = (event: React.SyntheticEvent) => {
     if (event.target === event?.currentTarget) {
       onClose();
@@ -58,8 +73,11 @@ const Modal = ({ title, content, onClose, width = 580 }: ModalProps) => {
   return (
     <ModalWrapper onClick={handleClickBackgroundClose}>
       <ModalContent width={width}>
-        <div>{title}</div>
-        <div>{content}</div>
+        {image && <Image image={image} />}
+        <ContentWrapper>
+          <div>{title}</div>
+          <div>{content}</div>
+        </ContentWrapper>
         <CloseButton src={Cross} alt="close" onClick={onClose} />
       </ModalContent>
     </ModalWrapper>

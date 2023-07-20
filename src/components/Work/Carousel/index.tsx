@@ -10,7 +10,7 @@ import WorkModal from '../WorkModal';
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 370px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -31,15 +31,8 @@ const CarouselImageStyle = css`
   border-radius: 4px;
 `;
 
-const ImageStyle = css`
-  width: 340px;
-  height: 300px;
-  filter: drop-shadow(0px 6px 6px rgba(20, 16, 0, 0.25));
-  border-radius: 4px;
-`;
-
 const Image = styled.img`
-  ${ImageStyle}
+  ${CarouselImageStyle}
 
   transition: transform 0.3s ease-in-out;
 `;
@@ -57,20 +50,11 @@ const CenterCarouselImage = styled.img`
   }
 `;
 
-const CenterImage = styled.img`
-  ${ImageStyle}
-
-  &:hover {
-    outline: 6px solid var(--yellow);
-    outline-offset: -6px;
-  }
-`;
-
 const ButtonStyle = css`
   padding: 0;
   margin: 30px 0 0 0;
   width: 50px;
-  height: 300px;
+  height: 370px;
   border: none;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -108,21 +92,24 @@ const RightButton = styled.button`
 
 type WorkListProps = {
   banners: string[];
+  currentCarouselIndex?: number;
   currentBannerIndex?: number;
   handleNext?: () => void;
   handlePrev?: () => void;
 };
 
-const WorkList = ({
+const Carousel = ({
   handlePrev,
   handleNext,
   banners,
+  currentCarouselIndex = 0,
   currentBannerIndex = 0,
 }: WorkListProps) => {
   const { openModal, closeModal, isShowModal } = useModal();
   const [currentModalImageIndex, setCurrentModalImageIndex] = useState(0);
 
   const handleImageClick = () => {
+    setCurrentModalImageIndex(currentCarouselIndex);
     openModal();
   };
 
@@ -130,7 +117,6 @@ const WorkList = ({
     () => WORK_MODAL_BANNERS[currentModalImageIndex],
     [currentModalImageIndex]
   );
-  console.log({ currentBannerIndex });
 
   return (
     <Wrapper>
@@ -140,30 +126,24 @@ const WorkList = ({
       <CarouselContent>
         <Image
           src={
-            banners[(currentBannerIndex - 1 + banners.length) % banners.length]
+            banners[
+              (currentCarouselIndex - 1 + banners.length) % banners.length
+            ]
           }
           alt="carousel"
         />
-        {[
-          currentBannerIndex,
-          currentBannerIndex + 1,
-          currentBannerIndex + 2,
-        ].map((index) => {
-          const normalizedIndex = (index + banners.length) % banners.length;
-          return (
-            <CenterImageWrapper
-              key={normalizedIndex}
-              onClick={() => {
-                setCurrentModalImageIndex(normalizedIndex);
-                handleImageClick();
-              }}
-            >
-              <CenterImage src={banners[normalizedIndex]} alt="work_list" />
-            </CenterImageWrapper>
-          );
-        })}
+        <CenterImageWrapper onClick={handleImageClick}>
+          <CenterCarouselImage
+            src={banners[currentCarouselIndex]}
+            alt="carousel"
+          />
+          <CarouselPointer
+            currentBannerIndex={currentCarouselIndex}
+            length={banners.length}
+          />
+        </CenterImageWrapper>
         <Image
-          src={banners[(currentBannerIndex + 3) % banners.length]}
+          src={banners[(currentCarouselIndex + 1) % banners.length]}
           alt="carousel"
         />
       </CarouselContent>
@@ -175,4 +155,4 @@ const WorkList = ({
   );
 };
 
-export default WorkList;
+export default Carousel;

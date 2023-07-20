@@ -6,11 +6,6 @@ import {
 } from '../../../styles/typography';
 import Modal from '../../Modal';
 
-const ModalWrapper = styled(Modal)`
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px 0px rgba(20, 16, 0, 0.1);
-`;
-
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -78,7 +73,7 @@ const ExperienceModal = ({
   description,
 }: ExperienceModalProps) => {
   return (
-    <ModalWrapper
+    <Modal
       title={<ExperienceModalTitle name={name} position={position} />}
       content={<ExperienceContent description={description} />}
       onClose={onClose}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../../components/SectionTitle';
 import { CAROUSEL_BANNERS, WORK_LIST_BANNERS } from '../../data/carouselData';
@@ -6,6 +6,9 @@ import { NAV } from '../../data/headerData';
 import { sectionStyle } from '../../styles/styles';
 import WorkList from '../../components/Work/WorkList';
 import WorkTitle from '../../components/Work/WorkTitle';
+import { useModal } from '../../hooks/useModal';
+import WorkModal from '../../components/Work/WorkModal';
+import Carousel from '../../components/Work/Carousel';
 
 const Wrapper = styled.div`
   ${sectionStyle}
@@ -59,8 +62,8 @@ const Works = () => {
   return (
     <Wrapper>
       <SectionTitle title={NAV.WORKS} />
-      <WorkList
-        currentBannerIndex={currentCarouselBannerIndex}
+      <Carousel
+        currentCarouselIndex={currentCarouselBannerIndex}
         handleNext={handleCarouselNext}
         handlePrev={handleCarouselPrev}
         banners={CAROUSEL_BANNERS}
@@ -68,11 +71,16 @@ const Works = () => {
       <WorkTitle />
       <WorkList
         currentBannerIndex={currentBannerIndex}
-        isCarousel={false}
         handleNext={handleNext}
         handlePrev={handlePrev}
         banners={WORK_LIST_BANNERS}
       />
+      {/* {isShowModal && (
+        <WorkModal
+          onClose={closeModal}
+          image={CAROUSEL_BANNERS[currentBannerIndex]}
+        />
+      )} */}
     </Wrapper>
   );
 };
