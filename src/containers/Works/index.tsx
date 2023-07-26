@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../../components/SectionTitle';
 import { CAROUSEL_BANNERS, WORK_LIST_BANNERS } from '../../data/carouselData';
@@ -6,8 +6,6 @@ import { NAV } from '../../data/headerData';
 import { sectionStyle } from '../../styles/styles';
 import WorkList from '../../components/Work/WorkList';
 import WorkTitle from '../../components/Work/WorkTitle';
-import { useModal } from '../../hooks/useModal';
-import WorkModal from '../../components/Work/WorkModal';
 import Carousel from '../../components/Work/Carousel';
 
 const Wrapper = styled.div`

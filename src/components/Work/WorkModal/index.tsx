@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { workModalDataType } from '../../../data/workModalData';
 import Modal from '../../Modal';
 import WorkModalContent from './WorkModalContent';

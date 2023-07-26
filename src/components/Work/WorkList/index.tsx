@@ -26,13 +26,6 @@ const CarouselContent = styled.div`
   column-gap: 20px;
 `;
 
-const CarouselImageStyle = css`
-  width: 1060px;
-  height: 370px;
-  filter: drop-shadow(0px 6px 6px rgba(20, 16, 0, 0.25));
-  border-radius: 4px;
-`;
-
 const ImageStyle = css`
   width: 340px;
   height: 300px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ArrowRight from '../../../images/arrow_right_small.png';
 import { secondaryTitleStyle } from '../../../styles/typography';
@@ -58,12 +59,21 @@ const Title = styled.p`
   line-height: 24px;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: var(--yellow);
+`;
+
 const WorkTitle = () => {
   return (
     <Wrapper>
       <Title>我的作品</Title>
       <DescriptionWrapper>
-        <Description>全部作品</Description>
+        <Description>
+          <StyledLink target="_blank" to="category">
+            全部作品
+          </StyledLink>
+        </Description>
         <Arrow src={ArrowRight} />
       </DescriptionWrapper>
     </Wrapper>

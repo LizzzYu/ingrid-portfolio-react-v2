@@ -21,11 +21,11 @@ import modal_image_4_2 from '../images/carousel/modal/img_4_2.png';
 import modal_image_5_1 from '../images/carousel/modal/img_5_1.png';
 import modal_image_5_2 from '../images/carousel/modal/img_5_2.png';
 import modal_image_6_1 from '../images/carousel/modal/img_6_1.png';
-import modal_image_6_2 from '../images/carousel/modal/img_6_1.png';
+import modal_image_6_2 from '../images/carousel/modal/img_6_2.png';
 import modal_image_6_3 from '../images/carousel/modal/img_6_3.png';
 import modal_image_7_1 from '../images/carousel/modal/img_7_1.png';
 import modal_image_7_2 from '../images/carousel/modal/img_7_2.png';
-import modal_image_8_1 from '../images/carousel/modal/img_8_2.png';
+import modal_image_8_1 from '../images/carousel/modal/img_8_1.png';
 import modal_image_8_2 from '../images/carousel/modal/img_8_2.png';
 
 export type workModalDataType = {
