@@ -6,6 +6,7 @@ import { NAV } from '../../data/headerData';
 import HomePage from '../HomePage';
 import { HEADER_HEIGHT } from '../../constants/constants';
 import Works from '../Works';
+import ContactMe from '../ContactMe';
 
 const Main = () => {
   const [currentSection, setCurrentSection] = useState<string>(NAV.MAIN);
@@ -15,6 +16,7 @@ const Main = () => {
   const aboutMeRef = useRef<HTMLDivElement | null>(null);
   const experienceRef = useRef<HTMLDivElement | null>(null);
   const worksRef = useRef<HTMLDivElement | null>(null);
+  const contactMeRef = useRef<HTMLDivElement | null>(null);
 
   const handleScrollToElement = (id: string) => {
     const element = document.getElementById(id);
@@ -60,8 +62,12 @@ const Main = () => {
         const experienceTop =
           experienceRef.current?.getBoundingClientRect().top ?? 0;
         const worksTop = worksRef.current?.getBoundingClientRect().top ?? 0;
+        const contactMeTop =
+          contactMeRef.current?.getBoundingClientRect().top ?? 0;
 
-        if (scrollPosition >= worksTop + windowHeight * 3) {
+        if (scrollPosition >= contactMeTop + windowHeight * 4) {
+          setCurrentSection(NAV.CONTACT_ME);
+        } else if (scrollPosition >= worksTop + windowHeight * 3) {
           setCurrentSection(NAV.WORKS);
         } else if (scrollPosition >= experienceTop + windowHeight * 2) {
           setCurrentSection(NAV.EXPERIENCE);
@@ -100,6 +106,9 @@ const Main = () => {
       </div>
       <div ref={worksRef} id={NAV.WORKS}>
         <Works />
+      </div>
+      <div ref={contactMeRef} id={NAV.CONTACT_ME}>
+        <ContactMe />
       </div>
     </>
   );
