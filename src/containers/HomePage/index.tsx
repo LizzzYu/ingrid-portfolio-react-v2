@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import backGround from '../../images/bg.png';
+import backGround from '../../images/main_bg.png';
 import mainPicture from '../../images/mainPicture.png';
 import { sectionStyle } from '../../styles/styles';
 
