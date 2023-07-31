@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { sectionStyle } from '../../styles/styles';
-import ContactMeBg from '../../images/rock_bg.png';
-import ContactMeImage from '../../images/contact_me.png';
+import contactMeBg from '../../images/rock_bg.png';
+import contactMeImage from '../../images/contact_me.png';
 import LinesLeft from '../../images/lines_left.png';
 import LinesRight from '../../images/lines_right.png';
 import { secondaryTitleStyle } from '../../styles/typography';
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   position: relative;
-  background-image: url(${ContactMeBg});
+  background-image: url(${contactMeBg});
   background-size: contain;
   background-position: center center;
 `;
@@ -72,7 +72,7 @@ const Email = styled.a`
 const ContactMe = () => {
   return (
     <Wrapper>
-      <ContactImg src={ContactMeImage} alt="contact_me" />
+      <ContactImg src={contactMeImage} alt="contact_me" />
       <Email href="mailto: inchitun@hotmail.com">inchitun@hotmail.com</Email>
       <DecorationRow>
         <Lines src={LinesLeft} />

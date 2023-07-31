@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 6;
+  z-index: 4;
 `;
 
 const Image = styled.img`
