@@ -4,7 +4,7 @@ import { NAV_DATA } from '../../../data/headerData';
 import MobileNavItem from './MobileNavItem';
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -28,12 +28,14 @@ type MobileNavProps = {
   setCurrentSection: Dispatch<SetStateAction<string>>;
   setIsShowMenu: Dispatch<SetStateAction<boolean>>;
   currentSection: string;
+  onClick?: () => void;
 };
 
 const MobileNav = ({
   setIsShowMenu,
   currentSection,
   setCurrentSection,
+  onClick,
 }: MobileNavProps) => {
   const handleClickBackgroundClose = (event: React.SyntheticEvent) => {
     if (event.target === event?.currentTarget) {
@@ -42,8 +44,12 @@ const MobileNav = ({
   };
 
   const onMobileNavClick = (name: string) => {
-    setCurrentSection(name);
     setIsShowMenu(false);
+    setCurrentSection(name);
+
+    if (onClick) {
+      onClick();
+    }
   };
 
   useEffect(() => {

@@ -99,8 +99,9 @@ const Main = () => {
           {isShowMenu && (
             <MobileNav
               setIsShowMenu={setIsShowMenu}
-              setCurrentSection={setCurrentSection}
               currentSection={currentSection}
+              setCurrentSection={setCurrentSection}
+              onClick={() => setIsScrolling(false)}
             />
           )}
         </>
@@ -116,16 +117,16 @@ const Main = () => {
       <div ref={homePageRef} id={NAV.MAIN}>
         <HomePage />
       </div>
-      {/* <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
+      <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
         <AboutMe />
       </div>
-      <div ref={experienceRef} id={NAV.EXPERIENCE}>
+      {/* <div ref={experienceRef} id={NAV.EXPERIENCE}>
         <Experience />
-      </div>
-      <div ref={worksRef} id={NAV.WORKS}>
+      </div> */}
+      {/* <div ref={worksRef} id={NAV.WORKS}>
         <Works />
-      </div>
-      <div ref={contactMeRef} id={NAV.CONTACT_ME}>
+      </div> */}
+      {/* <div ref={contactMeRef} id={NAV.CONTACT_ME}>
         <ContactMe />
       </div> */}
     </>
