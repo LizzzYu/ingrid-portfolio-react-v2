@@ -7,10 +7,15 @@ import HomePage from '../HomePage';
 import { HEADER_HEIGHT } from '../../constants/constants';
 import Works from '../Works';
 import ContactMe from '../ContactMe';
+import { isTablet } from '../../hooks/useDevice';
+import MobileHeader from '../../components/Mobile/MobileHeader';
+import MobileNav from '../../components/Mobile/MobileHeader/MobileNav';
 
 const Main = () => {
   const [currentSection, setCurrentSection] = useState<string>(NAV.MAIN);
   const [isScrolling, setIsScrolling] = useState<boolean>(true);
+
+  const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
 
   const homePageRef = useRef<HTMLDivElement | null>(null);
   const aboutMeRef = useRef<HTMLDivElement | null>(null);
@@ -88,17 +93,30 @@ const Main = () => {
 
   return (
     <>
-      <Header
-        onClick={() => {
-          setIsScrolling(false);
-        }}
-        currentSection={currentSection}
-        setCurrentSection={setCurrentSection}
-      />
+      {isTablet() ? (
+        <>
+          <MobileHeader onClick={() => setIsShowMenu(!isShowMenu)} />
+          {isShowMenu && (
+            <MobileNav
+              setIsShowMenu={setIsShowMenu}
+              setCurrentSection={setCurrentSection}
+              currentSection={currentSection}
+            />
+          )}
+        </>
+      ) : (
+        <Header
+          onClick={() => {
+            setIsScrolling(false);
+          }}
+          currentSection={currentSection}
+          setCurrentSection={setCurrentSection}
+        />
+      )}
       <div ref={homePageRef} id={NAV.MAIN}>
         <HomePage />
       </div>
-      <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
+      {/* <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
         <AboutMe />
       </div>
       <div ref={experienceRef} id={NAV.EXPERIENCE}>
@@ -109,7 +127,7 @@ const Main = () => {
       </div>
       <div ref={contactMeRef} id={NAV.CONTACT_ME}>
         <ContactMe />
-      </div>
+      </div> */}
     </>
   );
 };

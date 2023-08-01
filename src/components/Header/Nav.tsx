@@ -14,10 +14,6 @@ type NavProps = {
 };
 
 const Nav = ({ currentSection, setCurrentSection }: NavProps) => {
-  const onNavClick = (name: string) => {
-    setCurrentSection(name);
-  };
-
   return (
     <Wrapper>
       {NAV_DATA.map((nav, index) => (
@@ -25,7 +21,7 @@ const Nav = ({ currentSection, setCurrentSection }: NavProps) => {
           key={index}
           name={nav.name}
           currentSection={currentSection}
-          onClick={() => onNavClick(nav.name)}
+          onClick={() => setCurrentSection(nav.name)}
         />
       ))}
     </Wrapper>

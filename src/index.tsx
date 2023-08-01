@@ -8,12 +8,17 @@ import './styles/reset.css';
 import { RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
 import { MainRouter } from './containers/Routes/MainRouter';
+import { BREAK_POINT } from './constants/constants';
 
 const Wrapper = styled.div`
   width: 1200px;
   margin: 0 auto;
   background-color: var(--white);
   height: calc(100vh - 80px);
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    width: 100%;
+  }
 `;
 
 const root = ReactDOM.createRoot(

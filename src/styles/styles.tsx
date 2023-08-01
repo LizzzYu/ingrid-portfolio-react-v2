@@ -3,5 +3,5 @@ import { HEADER_HEIGHT } from '../constants/constants';
 
 export const sectionStyle = css`
   margin-top: ${HEADER_HEIGHT}px;
-  height: calc(100vh - ${HEADER_HEIGHT}px);
+  height: calc(100svh - ${HEADER_HEIGHT}px);
 `;
