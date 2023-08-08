@@ -129,15 +129,15 @@ const Main = () => {
       <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
         <AboutMe />
       </div>
-      <div ref={experienceRef} id={NAV.EXPERIENCE}>
+      {/* <div ref={experienceRef} id={NAV.EXPERIENCE}>
         <Experience />
-      </div>
-      <div ref={worksRef} id={NAV.WORKS}>
+      </div> */}
+      {/* <div ref={worksRef} id={NAV.WORKS}>
         <Works />
-      </div>
-      <div ref={contactMeRef} id={NAV.CONTACT_ME}>
+      </div> */}
+      {/* <div ref={contactMeRef} id={NAV.CONTACT_ME}>
         <ContactMe />
-      </div>
+      </div> */}
     </>
   );
 };

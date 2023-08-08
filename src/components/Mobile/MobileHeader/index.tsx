@@ -24,7 +24,7 @@ const HamburgerWrapper = styled.div`
   top: 0;
   right: 0;
 
-  padding: 33px 50px;
+  padding: 33px 40px;
 `;
 
 const MobileHeader = ({ onClick }: { onClick: () => void }) => {
