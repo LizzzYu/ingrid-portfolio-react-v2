@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
+import { BREAK_POINT } from '../../../constants/constants';
 import {
   WORK_MODAL_BANNERS,
   WORK_MODAL_DATA,
@@ -13,12 +14,22 @@ const Wrapper = styled.div`
   grid-auto-rows: minmax(30px, auto);
   padding: 30px 60px 0;
   gap: 30px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding: 30px 30px 0;
+  }
 `;
 
 type MobileWorkListProps = {
   banners: string[];
   currentBannerIndex?: number;
 };
+
+const Image = styled.img`
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    width: 100%;
+  }
+`;
 
 const MobileWorkList = ({
   banners,
@@ -44,7 +55,7 @@ const MobileWorkList = ({
   return (
     <Wrapper>
       {banners.map((banner, index) => (
-        <img src={banner} alt="banner" onClick={() => onBannerClick(index)} />
+        <Image src={banner} alt="banner" onClick={() => onBannerClick(index)} />
       ))}
       {isShowModal && (
         <WorkModal onClose={closeModal} image={currentImage} data={modalData} />
