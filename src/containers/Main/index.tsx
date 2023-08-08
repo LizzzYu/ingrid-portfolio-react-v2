@@ -129,9 +129,9 @@ const Main = () => {
       <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
         <AboutMe />
       </div>
-      {/* <div ref={experienceRef} id={NAV.EXPERIENCE}>
+      <div ref={experienceRef} id={NAV.EXPERIENCE}>
         <Experience />
-      </div> */}
+      </div>
       {/* <div ref={worksRef} id={NAV.WORKS}>
         <Works />
       </div> */}

@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   column-gap: 50px;
   height: 100%;
   justify-content: center;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    column-gap: 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -23,6 +27,11 @@ const Title = styled.h2`
   width: 300px;
   color: var(--grey);
   margin: 0;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 18px;
+    width: 180px;
+  }
 `;
 
 const TitleLeft = styled(Title)`
@@ -30,6 +39,10 @@ const TitleLeft = styled(Title)`
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     width: 100px;
+  }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    width: 80px;
   }
 `;
 
@@ -62,6 +75,10 @@ const CompanyWrapper = styled.div`
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     width: 240px;
   }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    width: 180px;
+  }
 `;
 
 const PeriodText = styled.p`
@@ -69,6 +86,10 @@ const PeriodText = styled.p`
 
   padding-top: 10px;
   color: var(--grey);
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 14px;
+  }
 `;
 
 type ExperienceItemProps = {
