@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.5); /* 背景透明度 50% */
   backdrop-filter: blur(5px); /* 模糊效果 */
+  z-index: 3;
 `;
 
 const Content = styled.div`

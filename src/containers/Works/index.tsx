@@ -1,15 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../../components/SectionTitle';
-import { CAROUSEL_BANNERS, WORK_LIST_BANNERS } from '../../data/carouselData';
+import {
+  CAROUSEL_BANNERS,
+  TABLET_CAROUSEL_BANNERS,
+  TABLET_WORK_LIST_BANNERS,
+  WORK_LIST_BANNERS,
+} from '../../data/carouselData';
 import { NAV } from '../../data/headerData';
 import { sectionStyle } from '../../styles/styles';
 import WorkList from '../../components/Work/WorkList';
 import WorkTitle from '../../components/Work/WorkTitle';
 import Carousel from '../../components/Work/Carousel';
+import { isTablet } from '../../hooks/useDevice';
+import MobileWorkList from '../../components/Mobile/MobileWorkList/MobileWorkList';
+import { BREAK_POINT } from '../../constants/constants';
 
 const Wrapper = styled.div`
   ${sectionStyle}
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    height: calc(200vh - 80px);
+  }
 `;
 
 const Works = () => {
@@ -57,6 +69,22 @@ const Works = () => {
     };
   }, []);
 
+  const carouselBanners = useMemo(() => {
+    if (isTablet()) {
+      return TABLET_CAROUSEL_BANNERS;
+    }
+
+    return CAROUSEL_BANNERS;
+  }, []);
+
+  const workListBanners = useMemo(() => {
+    if (isTablet()) {
+      return TABLET_WORK_LIST_BANNERS;
+    }
+
+    return WORK_LIST_BANNERS;
+  }, []);
+
   return (
     <Wrapper>
       <SectionTitle title={NAV.WORKS} />
@@ -64,15 +92,19 @@ const Works = () => {
         currentCarouselIndex={currentCarouselBannerIndex}
         handleNext={handleCarouselNext}
         handlePrev={handleCarouselPrev}
-        banners={CAROUSEL_BANNERS}
+        banners={carouselBanners}
       />
       <WorkTitle />
-      <WorkList
-        currentBannerIndex={currentBannerIndex}
-        handleNext={handleNext}
-        handlePrev={handlePrev}
-        banners={WORK_LIST_BANNERS}
-      />
+      {isTablet() ? (
+        <MobileWorkList banners={workListBanners} />
+      ) : (
+        <WorkList
+          currentBannerIndex={currentBannerIndex}
+          handleNext={handleNext}
+          handlePrev={handlePrev}
+          banners={workListBanners}
+        />
+      )}
     </Wrapper>
   );
 };

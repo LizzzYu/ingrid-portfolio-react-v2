@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { BREAK_POINT } from '../../../constants/constants';
 import {
   WORK_MODAL_DATA,
   WORK_MODAL_BANNERS,
@@ -19,6 +20,11 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 30px 0;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    height: 200px;
+    padding: 50px 0;
+  }
 `;
 
 const CarouselContent = styled.div`
@@ -32,6 +38,11 @@ const CarouselImageStyle = css`
   height: 370px;
   filter: drop-shadow(0px 6px 6px rgba(20, 16, 0, 0.25));
   border-radius: 4px;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    width: 648px;
+    height: 200px;
+  }
 `;
 
 const Image = styled.img`
@@ -73,6 +84,12 @@ const ButtonStyle = css`
       transition: ease-in-out 0.1s;
     }
   }
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    width: 40px;
+    height: 200px;
+    margin: 50px 0 0 0;
+  }
 `;
 
 const LeftButton = styled.button`
@@ -93,7 +110,7 @@ const RightButton = styled.button`
   border-radius: 4px 0 0 4px;
 `;
 
-type WorkListProps = {
+type CarouselProps = {
   banners: string[];
   currentCarouselIndex?: number;
   currentBannerIndex?: number;
@@ -107,7 +124,7 @@ const Carousel = ({
   banners,
   currentCarouselIndex = 0,
   currentBannerIndex = 0,
-}: WorkListProps) => {
+}: CarouselProps) => {
   const { openModal, closeModal, isShowModal } = useModal();
   const [currentModalImageIndex, setCurrentModalImageIndex] = useState(0);
 

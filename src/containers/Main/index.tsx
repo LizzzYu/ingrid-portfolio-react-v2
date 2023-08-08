@@ -70,11 +70,20 @@ const Main = () => {
         const contactMeTop =
           contactMeRef.current?.getBoundingClientRect().top ?? 0;
 
-        if (scrollPosition >= contactMeTop + windowHeight * 4) {
+        if (
+          scrollPosition >=
+          contactMeTop + (isTablet() ? windowHeight * 6 : windowHeight * 4)
+        ) {
           setCurrentSection(NAV.CONTACT_ME);
-        } else if (scrollPosition >= worksTop + windowHeight * 3) {
+        } else if (
+          scrollPosition >=
+          worksTop + (isTablet() ? windowHeight * 4 : windowHeight * 3)
+        ) {
           setCurrentSection(NAV.WORKS);
-        } else if (scrollPosition >= experienceTop + windowHeight * 2) {
+        } else if (
+          scrollPosition >=
+          experienceTop + (isTablet() ? windowHeight * 3 : windowHeight * 2)
+        ) {
           setCurrentSection(NAV.EXPERIENCE);
         } else if (scrollPosition >= aboutMeTop + windowHeight) {
           setCurrentSection(NAV.ABOUT_ME);
@@ -120,12 +129,12 @@ const Main = () => {
       <div ref={aboutMeRef} id={NAV.ABOUT_ME}>
         <AboutMe />
       </div>
-      {/* <div ref={experienceRef} id={NAV.EXPERIENCE}>
+      <div ref={experienceRef} id={NAV.EXPERIENCE}>
         <Experience />
-      </div> */}
-      {/* <div ref={worksRef} id={NAV.WORKS}>
+      </div>
+      <div ref={worksRef} id={NAV.WORKS}>
         <Works />
-      </div> */}
+      </div>
       {/* <div ref={contactMeRef} id={NAV.CONTACT_ME}>
         <ContactMe />
       </div> */}

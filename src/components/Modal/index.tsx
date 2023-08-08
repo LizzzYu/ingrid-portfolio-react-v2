@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { isTablet } from '../../hooks/useDevice';
 import Cross from '../../images/cross.png';
 import { secondaryTitleStyle } from '../../styles/typography';
 
@@ -19,7 +20,11 @@ const ModalWrapper = styled.div<{ isFloating: boolean }>`
   overflow: ${({ isFloating }) => (isFloating ? 'scroll' : 'auto')};
 `;
 
-const ModalContent = styled.div<{ width: number; isFloating: boolean }>`
+const ModalContent = styled.div<{
+  width: number;
+  isFloating: boolean;
+  isTablet: boolean;
+}>`
   box-sizing: border-box;
   background-color: var(--white);
   border-radius: 4px;
@@ -32,6 +37,15 @@ const ModalContent = styled.div<{ width: number; isFloating: boolean }>`
     css`
       position: absolute;
       top: 50px;
+      margin: 0;
+    `}
+
+  ${({ isTablet, isFloating }) =>
+    isTablet &&
+    isFloating &&
+    css`
+      width: unset;
+      margin: 0 40px;
     `}
 `;
 
@@ -55,13 +69,20 @@ const CloseButton = styled.img`
   right: 20px;
 `;
 
-const Image = styled.div<{ image: string }>`
+const Image = styled.div<{ image: string; isTablet: boolean }>`
   width: 700px;
   height: 350px;
 
   background-image: url(${({ image }) => image});
   background-size: cover;
   background-repeat: no-repeat;
+
+  ${({ isTablet }) =>
+    isTablet &&
+    css`
+      width: 90vw;
+      background-size: contain;
+    `};
 `;
 
 const Title = styled.h2`
@@ -94,8 +115,8 @@ const Modal = ({
 
   return (
     <ModalWrapper isFloating={isFloating} onClick={handleClickBackgroundClose}>
-      <ModalContent width={width} isFloating={isFloating}>
-        {image && <Image image={image} />}
+      <ModalContent width={width} isFloating={isFloating} isTablet={isTablet()}>
+        {image && <Image image={image} isTablet={isTablet()} />}
         <ContentWrapper>
           <Title>{title}</Title>
           <div>{content}</div>

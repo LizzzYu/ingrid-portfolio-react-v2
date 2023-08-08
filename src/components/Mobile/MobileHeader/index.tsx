@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  z-index: 1;
+  z-index: 4;
 `;
 
 const HamburgerWrapper = styled.div`

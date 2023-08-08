@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BREAK_POINT } from '../../../constants/constants';
 import { EXPERIENCE_MODAL_DATA } from '../../../data/experienceModalData';
 import { useModal } from '../../../hooks/useModal';
 import {
@@ -26,6 +27,10 @@ const Title = styled.h2`
 
 const TitleLeft = styled(Title)`
   text-align: right;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    width: 100px;
+  }
 `;
 
 const GraphicWrapper = styled.div`
@@ -53,6 +58,10 @@ const Line = styled.div`
 
 const CompanyWrapper = styled.div`
   width: 300px;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    width: 240px;
+  }
 `;
 
 const PeriodText = styled.p`
