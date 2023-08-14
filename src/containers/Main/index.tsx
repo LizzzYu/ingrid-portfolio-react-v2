@@ -135,9 +135,9 @@ const Main = () => {
       <div ref={worksRef} id={NAV.WORKS}>
         <Works />
       </div>
-      {/* <div ref={contactMeRef} id={NAV.CONTACT_ME}>
+      <div ref={contactMeRef} id={NAV.CONTACT_ME}>
         <ContactMe />
-      </div> */}
+      </div>
     </>
   );
 };

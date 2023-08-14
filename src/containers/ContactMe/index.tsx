@@ -6,6 +6,7 @@ import contactMeImage from '../../images/contact_me.png';
 import LinesLeft from '../../images/lines_left.png';
 import LinesRight from '../../images/lines_right.png';
 import { secondaryTitleStyle } from '../../styles/typography';
+import { BREAK_POINT } from '../../constants/constants';
 
 const Wrapper = styled.div`
   ${sectionStyle}
@@ -22,6 +23,11 @@ const Wrapper = styled.div`
 
 const ContactImg = styled.img`
   height: inherit;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    height: unset;
+    width: 100%;
+  }
 `;
 
 const DecorationRow = styled.div`
@@ -35,6 +41,10 @@ const DecorationRow = styled.div`
   bottom: 100px;
   padding: 0 50px;
   box-sizing: border-box;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding: 0 30px;
+  }
 `;
 
 const Lines = styled.img`
@@ -67,6 +77,17 @@ const Email = styled.a`
     color: var(--yellow);
     animation: none;
   }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    bottom: 250px;
+  }
+`;
+
+const Text = styled.div`
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    text-align: center;
+    padding: 0 10px;
+  }
 `;
 
 const ContactMe = () => {
@@ -76,7 +97,7 @@ const ContactMe = () => {
       <Email href="mailto: inchitun@hotmail.com">inchitun@hotmail.com</Email>
       <DecorationRow>
         <Lines src={LinesLeft} />
-        I am looking forward to hear form you soon.
+        <Text>I am looking forward to hear form you soon.</Text>
         <Lines src={LinesRight} />
       </DecorationRow>
     </Wrapper>

@@ -12,7 +12,7 @@ import { sectionStyle } from '../../styles/styles';
 import WorkList from '../../components/Work/WorkList';
 import WorkTitle from '../../components/Work/WorkTitle';
 import Carousel from '../../components/Work/Carousel';
-import { isTablet } from '../../hooks/useDevice';
+import { isMobile, isTablet } from '../../hooks/useDevice';
 import MobileWorkList from '../../components/Mobile/MobileWorkList/MobileWorkList';
 import { BREAK_POINT } from '../../constants/constants';
 
@@ -95,7 +95,7 @@ const Works = () => {
         banners={carouselBanners}
       />
       <WorkTitle />
-      {isTablet() ? (
+      {isTablet() || isMobile() ? (
         <MobileWorkList banners={workListBanners} />
       ) : (
         <WorkList

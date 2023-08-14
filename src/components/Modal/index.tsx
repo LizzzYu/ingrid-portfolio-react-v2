@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { isTablet } from '../../hooks/useDevice';
+import { isMobile, isTablet } from '../../hooks/useDevice';
 import Cross from '../../images/cross.png';
 import { secondaryTitleStyle } from '../../styles/typography';
 
@@ -24,6 +24,7 @@ const ModalContent = styled.div<{
   width: number;
   isFloating: boolean;
   isTablet: boolean;
+  isMobile: boolean;
 }>`
   box-sizing: border-box;
   background-color: var(--white);
@@ -45,7 +46,15 @@ const ModalContent = styled.div<{
     isFloating &&
     css`
       width: unset;
-      margin: 0 40px;
+      margin: 0 45px;
+    `}
+
+    ${({ isMobile, isFloating }) =>
+    isMobile &&
+    isFloating &&
+    css`
+      width: 90vw;
+      margin: 0 45px;
     `}
 `;
 
@@ -69,9 +78,13 @@ const CloseButton = styled.img`
   right: 20px;
 `;
 
-const Image = styled.div<{ image: string; isTablet: boolean }>`
+const Image = styled.div<{
+  image: string;
+  isTablet: boolean;
+  isMobile: boolean;
+}>`
   width: 700px;
-  height: 350px;
+  height: 370px;
 
   background-image: url(${({ image }) => image});
   background-size: cover;
@@ -80,6 +93,14 @@ const Image = styled.div<{ image: string; isTablet: boolean }>`
   ${({ isTablet }) =>
     isTablet &&
     css`
+      width: 90vw;
+      background-size: contain;
+    `};
+
+  ${({ isMobile }) =>
+    isMobile &&
+    css`
+      height: 200px;
       width: 90vw;
       background-size: contain;
     `};
@@ -115,8 +136,15 @@ const Modal = ({
 
   return (
     <ModalWrapper isFloating={isFloating} onClick={handleClickBackgroundClose}>
-      <ModalContent width={width} isFloating={isFloating} isTablet={isTablet()}>
-        {image && <Image image={image} isTablet={isTablet()} />}
+      <ModalContent
+        width={width}
+        isFloating={isFloating}
+        isTablet={isTablet()}
+        isMobile={isMobile()}
+      >
+        {image && (
+          <Image image={image} isTablet={isTablet()} isMobile={isMobile()} />
+        )}
         <ContentWrapper>
           <Title>{title}</Title>
           <div>{content}</div>

@@ -26,7 +26,7 @@ type MobileWorkListProps = {
 };
 
 const Image = styled.img`
-  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     width: 100%;
   }
 `;
