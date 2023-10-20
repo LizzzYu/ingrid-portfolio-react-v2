@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   box-sizing: border-box;
+  scroll-padding-top: 80px; /* height of your navbar */
 }
 
 body {
@@ -17,3 +19,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.active-scroll-spy {
+  color: var(--yellow);
+}
+
+.active-scroll-spy::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--yellow);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.active-scroll-spy-mobile {
+  color: red;
+  border-bottom: 2px solid var(--yellow);
+}
+/* @media screen and (max-width: 1024px) {
+  .active-scroll-spy {
+    color: red;
+    border-bottom: 2px solid var(--yellow);
+  }
+} */

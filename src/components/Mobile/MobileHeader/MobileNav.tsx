@@ -70,7 +70,9 @@ const MobileNav = ({
           <MobileNavItem
             key={index}
             name={nav.name}
+            link={nav.link}
             currentSection={currentSection}
+            setIsShowMenu={setIsShowMenu}
             onClick={() => onMobileNavClick(nav.name)}
           />
         ))}

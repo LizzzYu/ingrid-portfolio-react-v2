@@ -1,37 +1,21 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { contentTextStyle } from '../../styles/typography';
 
-const Wrapper = styled.div<{ isSelected: boolean }>`
+const Wrapper = styled.a`
   width: fit-content;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -30px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background-color: var(--yellow);
-    opacity: 0;
-    transition: opacity 0.3s;
+  &:visited {
+    color: var(--black);
   }
 
   &:hover {
     color: var(--yellow);
     transition: 0.3s;
   }
-
-  ${({ isSelected }) =>
-    isSelected &&
-    css`
-      color: var(--yellow);
-      &::before {
-        opacity: 1;
-      }
-    `}
 `;
 
 const Item = styled.p`
@@ -40,14 +24,26 @@ const Item = styled.p`
 
 type NavItemProps = {
   name: string;
-  currentSection: string;
-  onClick: () => void;
+  link: string;
 };
 
-const NavItem = ({ name, onClick, currentSection }: NavItemProps) => {
+const NavItem = ({ name, link }: NavItemProps) => {
+  const onPress = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const target = window.document.getElementById(
+      e.currentTarget.href.split('#')[1]
+    );
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <Wrapper onClick={onClick} isSelected={currentSection === name}>
-      <Item>{name}</Item>
+    <Wrapper
+      onClick={(e: any) => onPress(e)}
+      href={`#${link}`}
+    >
+      <Item data-to-scrollspy-id={link}>{name}</Item>
     </Wrapper>
   );
 };

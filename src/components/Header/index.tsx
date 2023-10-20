@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import logo from '../../images/logo.png';
 import Nav from './Nav';
@@ -24,24 +24,14 @@ const Image = styled.img`
   height: 42px;
 `;
 
-type HeaderProps = {
-  currentSection: string;
-  setCurrentSection: Dispatch<SetStateAction<string>>;
-  onClick?: () => void;
-};
-
-const Header = ({
-  currentSection,
-  setCurrentSection,
-  onClick,
-}: HeaderProps) => {
+const Header = () => {
   return (
-    <Wrapper onClick={onClick}>
-      <Image src={logo} alt="logo" />
-      <Nav
-        currentSection={currentSection}
-        setCurrentSection={setCurrentSection}
+    <Wrapper>
+      <Image
+        src={logo}
+        alt='logo'
       />
+      <Nav />
     </Wrapper>
   );
 };
