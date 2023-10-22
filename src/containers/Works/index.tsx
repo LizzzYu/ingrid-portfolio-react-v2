@@ -18,6 +18,7 @@ import { BREAK_POINT } from '../../constants/constants';
 
 const Wrapper = styled.div`
   ${sectionStyle}
+  min-height: 900px;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     height: calc(200vh - 80px);

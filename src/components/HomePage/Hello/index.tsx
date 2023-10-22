@@ -9,6 +9,7 @@ import { contentTextStyle } from '../../../styles/typography';
 const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
+  min-height: 800px;
 
   display: flex;
   flex-direction: column;
@@ -49,7 +50,10 @@ const Lines = styled.img`
 const Hello = () => {
   return (
     <Wrapper>
-      <ContactImg src={HelloImage} alt="hello" />
+      <ContactImg
+        src={HelloImage}
+        alt='hello'
+      />
       <DecorationRow>
         <Lines src={LinesLeft} />
         Welcome to my portfolio.

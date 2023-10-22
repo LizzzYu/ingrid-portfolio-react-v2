@@ -8,6 +8,7 @@ import { BREAK_POINT } from '../../../constants/constants';
 const Wrapper = styled.div<{ rownumber: number }>`
   display: grid;
   height: calc(100vh - 210px);
+  min-height: 600px;
   grid-template-rows: repeat(${({ rownumber }) => rownumber}, 1fr);
   row-gap: 10px;
   align-items: center;
@@ -46,7 +47,10 @@ const ExperienceFragment = () => {
           period={company.period}
         />
       ))}
-      <ArrowDownImage src={ArrowDown} alt="arrow_down" />
+      <ArrowDownImage
+        src={ArrowDown}
+        alt='arrow_down'
+      />
     </Wrapper>
   );
 };

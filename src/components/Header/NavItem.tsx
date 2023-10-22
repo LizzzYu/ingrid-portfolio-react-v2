@@ -7,10 +7,7 @@ const Wrapper = styled.a`
   position: relative;
   cursor: pointer;
   text-decoration: none;
-
-  &:visited {
-    color: var(--black);
-  }
+  color: var(--black);
 
   &:hover {
     color: var(--yellow);

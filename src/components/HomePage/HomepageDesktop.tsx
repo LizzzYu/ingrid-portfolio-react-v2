@@ -53,6 +53,7 @@ const MainWrapper = styled.div`
 
 const BGWrapper = styled.div`
   width: 200vw;
+  min-height: 800px;
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -70,6 +71,7 @@ const BGWrapper = styled.div`
 
 const Background = styled.div`
   height: calc(100vh - 80px);
+  min-height: 800px;
   width: 1200px;
   overflow: hidden;
 
@@ -84,6 +86,7 @@ const Background = styled.div`
 
 const MainBGImage = styled.div`
   height: inherit;
+  min-height: 800px;
   width: 100%;
 
   background-image: url(${backGround});
@@ -137,7 +140,10 @@ const HomePageDesktop = () => {
       <AvatarWrapper
         style={{ animationPlayState: isSliding ? 'running' : 'paused' }}
       >
-        <MainPicture src={mainPicture} alt="main_picture" />
+        <MainPicture
+          src={mainPicture}
+          alt='main_picture'
+        />
         <PaintCanImg
           src={paintCan}
           onClick={handleMainPictureClick}
