@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './styles/color.css';
 import './styles/reset.css';
-// import App from './App';
+import './styles/fonts.css';
 
 import { RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';

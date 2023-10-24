@@ -76,7 +76,6 @@ const DotGroup = styled.div`
 `;
 
 const Description = styled.div`
-  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -87,7 +86,6 @@ const Description = styled.div`
 
 const MobileDescription = styled.div<{ isMobile: boolean }>`
   height: 100svh;
-  font-family: Inter;
   font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
   font-style: normal;
   font-weight: 400;
@@ -104,7 +102,10 @@ const AboutMe = () => {
     <Wrapper isTablet={isTablet()}>
       {!isTablet() && !isMobile() && (
         <>
-          <AvatarImage src={Avatar} alt="avatar" />
+          <AvatarImage
+            src={Avatar}
+            alt='avatar'
+          />
           <TextWrapper>
             <Title>關於</Title>
             <TitleWithDotWrapper>
@@ -140,7 +141,10 @@ const AboutMe = () => {
       {(isTablet() || isMobile()) && (
         <>
           <div style={{ height: '100svh' }}>
-            <AvatarImage src={Avatar} alt="avatar" />
+            <AvatarImage
+              src={Avatar}
+              alt='avatar'
+            />
             <TextWrapper>
               <Title>關於</Title>
               <TitleWithDotWrapper>
