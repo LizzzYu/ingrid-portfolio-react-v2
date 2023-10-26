@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   min-height: 900px;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
-    height: calc(200vh - 80px);
+    height: auto;
   }
 `;
 

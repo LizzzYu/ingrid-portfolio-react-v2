@@ -85,7 +85,7 @@ const Description = styled.div`
 `;
 
 const MobileDescription = styled.div<{ isMobile: boolean }>`
-  height: 100svh;
+  height: 800px;
   font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
   font-style: normal;
   font-weight: 400;
@@ -140,7 +140,7 @@ const AboutMe = () => {
       )}
       {(isTablet() || isMobile()) && (
         <>
-          <div style={{ height: '100svh' }}>
+          <div>
             <AvatarImage
               src={Avatar}
               alt='avatar'

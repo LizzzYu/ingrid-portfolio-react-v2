@@ -10,5 +10,6 @@ export const sectionStyle = css`
   @media screen and (max-width: 1024px) {
     min-height: unset;
     padding-bottom: unset;
+    margin-bottom: 100px;
   }
 `;
