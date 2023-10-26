@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const ContactImg = styled.img`
+  min-height: inherit;
   height: inherit;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
@@ -93,8 +94,11 @@ const Text = styled.div`
 const ContactMe = () => {
   return (
     <Wrapper>
-      <ContactImg src={contactMeImage} alt="contact_me" />
-      <Email href="mailto: inchitun@hotmail.com">inchitun@hotmail.com</Email>
+      <ContactImg
+        src={contactMeImage}
+        alt='contact_me'
+      />
+      <Email href='mailto: inchitun@hotmail.com'>inchitun@hotmail.com</Email>
       <DecorationRow>
         <Lines src={LinesLeft} />
         <Text>I am looking forward to hear form you soon.</Text>

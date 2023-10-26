@@ -23,6 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const ContactImg = styled.img`
+  min-height: inherit;
   height: inherit;
 `;
 
