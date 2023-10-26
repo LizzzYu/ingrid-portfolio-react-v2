@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   background-image: url(${contactMeBg});
   background-size: contain;
   background-position: center center;
+  background-repeat: no-repeat;
 `;
 
 const ContactImg = styled.img`
