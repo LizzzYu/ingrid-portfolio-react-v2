@@ -36,6 +36,7 @@ const Title = styled.h2`
 
 const TitleLeft = styled(Title)`
   text-align: right;
+  font-weight: 600;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     width: 100px;

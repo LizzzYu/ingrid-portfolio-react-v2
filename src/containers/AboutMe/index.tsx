@@ -18,6 +18,7 @@ const Wrapper = styled.div<{ isTablet: boolean }>`
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     flex-direction: column;
     justify-content: flex-start;
+    padding: 0 100px 70px;
   }
 `;
 
@@ -25,7 +26,7 @@ const AvatarImage = styled.img`
   width: 550px;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
-    padding-top: 50px;
+    width: 570px;
   }
 
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {
@@ -40,8 +41,8 @@ const TextWrapper = styled.div`
   align-items: flex-start;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
-    padding-top: 50px;
-    padding-left: 10px;
+    padding-top: 100px;
+    margin-left: -60px;
     width: 100%;
   }
 `;
@@ -64,7 +65,7 @@ const LargeTitle = styled.div`
   font-family: Roboto;
   font-size: 80px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 95px;
   padding-right: 20px;
 `;
@@ -85,7 +86,7 @@ const Description = styled.div`
 `;
 
 const MobileDescription = styled.div<{ isMobile: boolean }>`
-  height: 800px;
+  padding-top: 50px;
   font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
   font-style: normal;
   font-weight: 400;
@@ -116,7 +117,6 @@ const AboutMe = () => {
               </DotGroup>
             </TitleWithDotWrapper>
             <Description>
-              我是唐英綺，興趣電影、音樂、旅遊、運動。擅長統整、歸納、分析，喜歡嘗試不同的過程，以最有效率的方法，達成符合預期的成果。
               <br />
               <br />
               平面設計出生的我，在包裝改版過程中，喜歡以消費者心態為設計的出發點，並對於不同的通路商提出符合各通路商的行銷策略，不僅維護了長期的客戶，也開發了新的市場族群，有效的提升業績，並達成了無陣痛期的包裝改版過程。
@@ -133,7 +133,7 @@ const AboutMe = () => {
               專案，擔任前端工程師一職，並負責建立環境與部署。
               <br />
               <br />
-              下一步目標，以前端工程師的角色，保持學習與成長的人生邁進。
+              下一步目標，帶著一顆保持學習與成長的心向前邁進。
             </Description>
           </TextWrapper>
         </>
@@ -174,7 +174,7 @@ const AboutMe = () => {
             專案，擔任前端工程師一職，並負責建立環境與部署。
             <br />
             <br />
-            下一步目標，以前端工程師的角色，保持學習與成長的人生邁進。
+            下一步目標，帶著一顆保持學習與成長的心向前邁進。
           </MobileDescription>
         </>
       )}

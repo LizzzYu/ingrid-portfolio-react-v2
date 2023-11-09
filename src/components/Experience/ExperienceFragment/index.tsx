@@ -14,11 +14,10 @@ const Wrapper = styled.div<{ rownumber: number }>`
   align-items: center;
   justify-content: center;
   justify-items: center;
-  padding-bottom: 50px;
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     padding-top: 50px;
-    height: calc(100vh - 260px);
+    /* height: calc(100vh - 260px); */
   }
 
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {

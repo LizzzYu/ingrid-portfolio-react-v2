@@ -20,6 +20,10 @@ const Wrapper = styled.div`
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    padding: 0 100px;
+  }
 `;
 
 const ContactImg = styled.img`

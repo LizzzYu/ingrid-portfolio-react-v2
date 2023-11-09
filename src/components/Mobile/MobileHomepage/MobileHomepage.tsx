@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    height: calc(100svh - 80px);
+  }
 `;
 
 const MainImage = styled.img`
