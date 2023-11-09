@@ -48,6 +48,10 @@ const DecorationRow = styled.div`
   padding: 0 50px;
   box-sizing: border-box;
 
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    padding: 0 100px;
+  }
+
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {
     padding: 0 30px;
   }
