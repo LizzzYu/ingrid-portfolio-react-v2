@@ -19,7 +19,6 @@ export const sectionTitleStyle = css`
 
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {
     font-size: 20px;
-    font-weight: 500;
     line-height: 20px;
     padding: 0 0 0 20px;
   }

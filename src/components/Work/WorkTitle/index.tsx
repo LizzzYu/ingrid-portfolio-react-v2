@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BREAK_POINT } from '../../../constants/constants';
+import { isMobile, isTablet } from '../../../hooks/useDevice';
 import ArrowRight from '../../../images/arrow_right_small.png';
 import { secondaryTitleStyle } from '../../../styles/typography';
 
@@ -74,15 +75,19 @@ const WorkTitle = () => {
     <Wrapper>
       <Title>我的作品</Title>
       <DescriptionWrapper>
-        <Description>
-          <StyledLink
-            target='_blank'
-            to='category'
-          >
-            全部作品
-          </StyledLink>
-        </Description>
-        <Arrow src={ArrowRight} />
+        {!isMobile() && !isTablet() && (
+          <>
+            <Description>
+              <StyledLink
+                target='_blank'
+                to='category'
+              >
+                全部作品
+              </StyledLink>
+            </Description>
+            <Arrow src={ArrowRight} />
+          </>
+        )}
       </DescriptionWrapper>
     </Wrapper>
   );
