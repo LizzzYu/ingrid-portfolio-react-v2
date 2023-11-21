@@ -20,6 +20,10 @@ const Wrapper = styled.div<{ isTablet: boolean }>`
     justify-content: flex-start;
     padding: 0 100px 70px;
   }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding: 0 48px 20px;
+  }
 `;
 
 const AvatarImage = styled.img`
@@ -45,6 +49,11 @@ const TextWrapper = styled.div`
     margin-left: -60px;
     width: 100%;
   }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding-top: 50px;
+    margin-left: -18px;
+  }
 `;
 
 const TitleWithDotWrapper = styled.div`
@@ -59,6 +68,12 @@ const Title = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 45px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+  }
 `;
 
 const LargeTitle = styled.div`
@@ -68,12 +83,23 @@ const LargeTitle = styled.div`
   font-weight: 600;
   line-height: 95px;
   padding-right: 20px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+    padding-right: 10px;
+  }
 `;
 
 const DotGroup = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    row-gap: 5px;
+  }
 `;
 
 const Description = styled.div`
@@ -85,9 +111,9 @@ const Description = styled.div`
   color: var(--grey);
 `;
 
-const MobileDescription = styled.div<{ isMobile: boolean }>`
+const MobileDescription = styled.div`
   padding-top: 50px;
-  font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
@@ -150,13 +176,19 @@ const AboutMe = () => {
               <TitleWithDotWrapper>
                 <LargeTitle>我</LargeTitle>
                 <DotGroup>
-                  <Dot size={20} />
-                  <Dot size={20} />
+                  <Dot
+                    size={isMobile() ? 10 : 20}
+                    borderRadius={isMobile() ? 2 : 4}
+                  />
+                  <Dot
+                    size={isMobile() ? 10 : 20}
+                    borderRadius={isMobile() ? 2 : 4}
+                  />
                 </DotGroup>
               </TitleWithDotWrapper>
             </TextWrapper>
           </div>
-          <MobileDescription isMobile={isMobile()}>
+          <MobileDescription>
             我是唐英綺，興趣電影、音樂、旅遊、運動。擅長統整、歸納、分析，喜歡嘗試不同的過程，以最有效率的方法，達成符合預期的成果。
             <br />
             <br />

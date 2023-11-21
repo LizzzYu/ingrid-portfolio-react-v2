@@ -23,6 +23,11 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     padding: 0 100px;
+    height: calc(100svh - 80px);
+  }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding: 0 20px;
   }
 `;
 
@@ -32,7 +37,12 @@ const ContactImg = styled.img`
 
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     height: unset;
+    padding-top: 10%;
     width: 100%;
+  }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    /* padding-top: 10%; */
   }
 `;
 
@@ -54,12 +64,18 @@ const DecorationRow = styled.div`
 
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {
     padding: 0 30px;
+    bottom: 15%;
   }
 `;
 
 const Lines = styled.img`
   width: 80px;
   height: 30px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    width: 40px;
+    height: 15px;
+  }
 `;
 
 const shaking = keyframes`
@@ -88,13 +104,14 @@ const Email = styled.a`
     animation: none;
   }
 
-  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
-    bottom: 250px;
+  @media screen and (max-width: ${BREAK_POINT.tablet}px) {
+    bottom: 40svh;
   }
 `;
 
 const Text = styled.div`
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 16px;
     text-align: center;
     padding: 0 10px;
   }

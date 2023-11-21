@@ -19,10 +19,6 @@ const Wrapper = styled.div<{ rownumber: number }>`
     padding-top: 50px;
     /* height: calc(100vh - 260px); */
   }
-
-  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
-    padding-top: 40px;
-  }
 `;
 
 const ArrowDownImage = styled.img`

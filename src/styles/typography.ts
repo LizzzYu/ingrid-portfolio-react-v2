@@ -16,6 +16,13 @@ export const sectionTitleStyle = css`
   line-height: 47px;
   padding: 30px 0 0 30px;
   margin: 0;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 0 0 0 20px;
+  }
 `;
 
 export const secondaryTitleStyle = css`
@@ -24,4 +31,8 @@ export const secondaryTitleStyle = css`
   font-style: normal;
   font-weight: 600;
   line-height: 28px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    font-size: 18px;
+  }
 `;

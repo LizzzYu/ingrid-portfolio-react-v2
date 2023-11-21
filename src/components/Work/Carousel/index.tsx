@@ -25,6 +25,10 @@ const Wrapper = styled.div`
     height: 200px;
     padding: 50px 0;
   }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding: 30px 0 50px;
+  }
 `;
 
 const CarouselContent = styled.div`
@@ -90,6 +94,12 @@ const ButtonStyle = css`
     height: 200px;
     margin: 50px 0 0 0;
   }
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    width: 40px;
+    height: 200px;
+    margin: 30px 0 0 0;
+  }
 `;
 
 const LeftButton = styled.button`
@@ -145,7 +155,10 @@ const Carousel = ({
   return (
     <Wrapper>
       <LeftButton onClick={handlePrev}>
-        <img src={ArrowLeft} alt="previous" />
+        <img
+          src={ArrowLeft}
+          alt='previous'
+        />
       </LeftButton>
       <CarouselContent>
         <Image
@@ -154,12 +167,12 @@ const Carousel = ({
               (currentCarouselIndex - 1 + banners.length) % banners.length
             ]
           }
-          alt="carousel"
+          alt='carousel'
         />
         <CenterImageWrapper onClick={handleImageClick}>
           <CenterCarouselImage
             src={banners[currentCarouselIndex]}
-            alt="carousel"
+            alt='carousel'
           />
           <CarouselPointer
             currentBannerIndex={currentCarouselIndex}
@@ -168,14 +181,21 @@ const Carousel = ({
         </CenterImageWrapper>
         <Image
           src={banners[(currentCarouselIndex + 1) % banners.length]}
-          alt="carousel"
+          alt='carousel'
         />
       </CarouselContent>
       <RightButton onClick={handleNext}>
-        <img src={ArrowRight} alt="next" />
+        <img
+          src={ArrowRight}
+          alt='next'
+        />
       </RightButton>
       {isShowModal && (
-        <WorkModal onClose={closeModal} image={currentImage} data={modalData} />
+        <WorkModal
+          onClose={closeModal}
+          image={currentImage}
+          data={modalData}
+        />
       )}
     </Wrapper>
   );

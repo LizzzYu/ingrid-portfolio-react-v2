@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { BREAK_POINT } from '../../constants/constants';
 import { isMobile, isTablet } from '../../hooks/useDevice';
 import Cross from '../../images/cross.png';
 import { secondaryTitleStyle } from '../../styles/typography';
@@ -60,6 +61,10 @@ const ModalContent = styled.div<{
 
 const ContentWrapper = styled.div`
   padding: 40px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding: 20px;
+  }
 `;
 
 export type ModalProps = {
@@ -135,7 +140,10 @@ const Modal = ({
   }, []);
 
   return (
-    <ModalWrapper isFloating={isFloating} onClick={handleClickBackgroundClose}>
+    <ModalWrapper
+      isFloating={isFloating}
+      onClick={handleClickBackgroundClose}
+    >
       <ModalContent
         width={width}
         isFloating={isFloating}
@@ -143,13 +151,21 @@ const Modal = ({
         isMobile={isMobile()}
       >
         {image && (
-          <Image image={image} isTablet={isTablet()} isMobile={isMobile()} />
+          <Image
+            image={image}
+            isTablet={isTablet()}
+            isMobile={isMobile()}
+          />
         )}
         <ContentWrapper>
           <Title>{title}</Title>
           <div>{content}</div>
         </ContentWrapper>
-        <CloseButton src={Cross} alt="close" onClick={onClose} />
+        <CloseButton
+          src={Cross}
+          alt='close'
+          onClick={onClose}
+        />
       </ModalContent>
     </ModalWrapper>
   );

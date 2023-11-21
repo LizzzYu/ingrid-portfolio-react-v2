@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BREAK_POINT } from '../../../constants/constants';
 import ArrowRight from '../../../images/arrow_right_small.png';
 import { secondaryTitleStyle } from '../../../styles/typography';
 
@@ -15,6 +16,10 @@ const Wrapper = styled(FlexBox)`
   column-gap: 10px;
   padding-left: 70px;
   width: fit-content;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding-left: 30px;
+  }
 `;
 
 const Description = styled.p`
@@ -70,7 +75,10 @@ const WorkTitle = () => {
       <Title>我的作品</Title>
       <DescriptionWrapper>
         <Description>
-          <StyledLink target="_blank" to="category">
+          <StyledLink
+            target='_blank'
+            to='category'
+          >
             全部作品
           </StyledLink>
         </Description>

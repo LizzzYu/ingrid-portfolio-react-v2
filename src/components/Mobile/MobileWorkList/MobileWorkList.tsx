@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: ${BREAK_POINT.mobile}px) {
     padding: 30px 30px 0;
+    gap: 10px;
   }
 `;
 
@@ -26,6 +27,7 @@ type MobileWorkListProps = {
 };
 
 const Image = styled.img`
+  border-radius: 4px;
   @media screen and (max-width: ${BREAK_POINT.tablet}px) {
     width: 100%;
   }
@@ -55,10 +57,18 @@ const MobileWorkList = ({
   return (
     <Wrapper>
       {banners.map((banner, index) => (
-        <Image src={banner} alt="banner" onClick={() => onBannerClick(index)} />
+        <Image
+          src={banner}
+          alt='banner'
+          onClick={() => onBannerClick(index)}
+        />
       ))}
       {isShowModal && (
-        <WorkModal onClose={closeModal} image={currentImage} data={modalData} />
+        <WorkModal
+          onClose={closeModal}
+          image={currentImage}
+          data={modalData}
+        />
       )}
     </Wrapper>
   );

@@ -12,6 +12,11 @@ const Wrapper = styled.a`
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  border-bottom: 1px solid var(--f-4-f-3-ea, #f4f3ea);
+
+  &:visited {
+    color: #141000;
+  }
 `;
 
 const Text = styled.p`

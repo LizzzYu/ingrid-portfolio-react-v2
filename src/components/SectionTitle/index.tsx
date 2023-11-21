@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BREAK_POINT } from '../../constants/constants';
+import { isMobile } from '../../hooks/useDevice';
 import { sectionTitleStyle } from '../../styles/typography';
 import Dot from '../Dot';
 
@@ -12,6 +14,10 @@ const Title = styled.h1`
   ${sectionTitleStyle}
 
   padding-right: 20px;
+
+  @media screen and (max-width: ${BREAK_POINT.mobile}px) {
+    padding-right: 10px;
+  }
 `;
 
 type SectionTitleProps = {
@@ -22,7 +28,7 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
-      <Dot size={30} />
+      <Dot size={isMobile() ? 15 : 30} />
     </Wrapper>
   );
 };

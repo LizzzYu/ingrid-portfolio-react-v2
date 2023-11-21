@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { isMobile } from '../../../hooks/useDevice';
 import {
   contentTextStyle,
   secondaryTitleStyle,
@@ -74,9 +75,15 @@ const ExperienceModal = ({
 }: ExperienceModalProps) => {
   return (
     <Modal
-      title={<ExperienceModalTitle name={name} position={position} />}
+      title={
+        <ExperienceModalTitle
+          name={name}
+          position={position}
+        />
+      }
       content={<ExperienceContent description={description} />}
       onClose={onClose}
+      width={isMobile() ? 335 : 580}
     />
   );
 };
